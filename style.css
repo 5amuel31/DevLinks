@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hoover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --swicht-bg: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hoover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --swicht-bg: url(./assets/sun.svg);
+}
+
+/* MODELO PADRÃO
+
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+
+/* MODELO RESUMIDO (SHORT HAND/ATALHO)
+  
+  background: color image repeat position/size 
+  background: url(./assets/bg-mobile.jpg) no-repeat top center/cover;
+  */
+
+body {
+  background-image: var(--bg-url);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+
+/* 
+O '*' SERVE PRA SIDEZ QUE TODO O BODY IRÁ RECEBER A FONTE
+*/
+
+body * {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+}
+
+  /* MODELO RESUMIDO PARA ADAPTAÇÃO DE BORDA (SHORT HAND/ATALHO)
+  
+  border: grossura solid color 
+  margin: auto; (centralizador)
+  */
+
+#container {
+  width: 360px;
+  padding: 0 24px;
+  margin: auto;
+
+  /* O MARGIN PODE SER ESCRITO DE DIVERSAS FORMAS, LEMBRAR DO RELOGINHO:
+
+  O margin: auto; SIGNIFICA:
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+
+  ESSE TEXTO PODE SER ESCRITO DE OUTRA FORMA:
+
+  margin: top right bottom left;
+  margin: 1   2
+  - 1= top e bottom
+  - 2= right e left
+  
+  margin: 1   2   3
+  - 1= top
+  - 2= right e left
+  - 3= bottom
+
+  */
+
+  padding-top: 56px;
+}
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+  display: block ;
+  margin: auto;
+
+  /* DISPLAY BLOCK x INLINE
+  
+  display: block; (toda largura possível de tela, se não tiver definido estica tudo, força a ir pra baixo)
+  display: inline; (como o prorpio nome diz, os elemento ficam em linha, lado a lado)
+  */
+
+  /* OUTRO JEITO DE ALINHAR AO CENTRO (UTILIZANDO "O SEU PAI", O PAI DO profile img é o profile
+  
+  #profile {
+  text-aling: center;
+  */
+
+}
+
+#profile p {
+  font-weight: 500;
+  font-size: 16px;
+  /* PADRÃO DO NAVEGADOR É 16px
+  */
+  margin-top: 8px;
+  line-height: 24px;
+}
+
+#switch{
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button{
+  width: 32px;
+  height: 32px;
+  border: 0px;
+  border-radius: 50%;
+  background: white var(--swicht-bg) no-repeat center;
+
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  left: 0;
+  transform: translateY(-50%);
+  
+}
+
+.light #switch button{
+  right: 0;
+  left: initial;
+}
+
+#switch span{
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* links - lista*/
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  padding: 16px 24px;
+  justify-content: center;
+
+    /* ALING ITEMS x JUSTIFY CONTENT
+  
+  justify-content: center; (vai para o meio horizontalmente, como se fosse o WORD)
+  align-content: center; (vai para o meio verticalmente)
+  */
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background .4s;
+}
+
+/* pseudo-selector - quando o mouse estiver em cima*/
+ul li a:hover {
+  background: var(--surface-color-hoover);
+  border: 1.5px solid var(--text-color);
+}
+
+/* links sociais - icones*/
+
+#social-links {
+  display: flex;
+  padding: 24px 0;
+  font-size: 24px;
+  justify-content: center;
+}
+
+#social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+
+  transition: background .2s;
+  border-radius: 50%;
+  
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+  border-radius: 50%;
+
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center ;
+  font-size: 14px;
+}
