@@ -1,7 +1,7 @@
 <h1 align="center"> DevLinks </h1>
 
 <p align="center">
-Projeto exclusivo e gratuito, promovido pela Rocketseat para ensino de tecnologias WEB.
+Projeto exclusivo e gratuito, parte do curso Discovery promovido pela Rocketseat para ensino de tecnologias WEB.
 </p>
 
 <p align="center">
